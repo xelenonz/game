@@ -1,0 +1,505 @@
+/* Website template by freewebsitetemplates.com */
+body {
+	background: url(../images/bg-body.gif) repeat center top;
+	color: #a47c50;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	min-width: 960px;
+	padding: 0;
+}
+a {
+	outline: none;
+}
+img {
+	border: 0;
+}
+p {
+	letter-spacing: 0.05em;
+	line-height: 24px;
+	text-align: justify;
+}
+p a,
+#body div div ul li a {
+	color: #a47c50;
+}
+p a:hover,
+#body div div ul li a:hover,
+#body div div#blog ul li ul li a:hover {
+	color: #83450e;
+	text-decoration: underline;
+}
+#header {
+	height: 195px;
+	margin: 0 auto 20px;
+	width: 960px;
+}
+#header a {
+	display: inline-block;
+}
+#header div {
+	background: url(../images/bg-navigation.gif) repeat-x;
+	height: 40px;
+	overflow: hidden;
+}
+#header div ul {
+	background: url(../images/bg-navigation-left.gif) no-repeat left top;
+	float: left;
+	height: 39px;
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 2px;
+}
+#header div ul li {
+	float: left;
+	margin: 2px 0 0;
+	height: 35px;
+}
+#header div ul li.current:first-child {
+	border-radius: 3px 0 0 3px;
+}
+#header div ul li:first-child,
+#header div ul li.current:first-child a {
+	background: none;
+}
+#header div ul li.current {
+	background: url(../images/bg-menu-selected-right.gif) no-repeat right top;
+}
+#header div ul li.current a {
+	background: url(../images/bg-menu-selected-left.gif) no-repeat left top;
+	color: #f4f2c8;
+}
+#header div ul li a {
+	color: #fffcf4;
+	display: block;
+	font-weight: bold;
+	line-height: 36px;
+	padding: 0 26px;
+	text-shadow: 0 1px #bd4206, 1px 0 #bd4206;
+	text-decoration: none;
+}
+#header div ul li a:hover {
+	color: #f4f2c8;
+}
+#header div form {
+	background: url(../images/bg-navigation-right.gif) no-repeat right top;
+	float: right;
+	height: 39px;
+	padding: 0 10px 0 0;
+	line-height: 39px;
+}
+#header div form input#search {
+	background: #fefffa;
+	border: 1px solid #cd4a14;
+	color: #9b969d;
+	font-style: italic;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 5px;
+	width: 255px;
+}
+#header div form input#searchbtn {
+	background: none;
+	border: 0;
+	color: #fffcf4;
+	font-size: 14px;
+	font-weight: bold;
+	text-shadow: 0 1px #bd4206, 1px 0 #bd4206;
+}
+#body {
+	overflow: hidden;
+	margin: 0 auto 40px;
+	width: 960px;
+}
+#body div {
+	background: #fff;
+	border: 1px solid #e1e1e1;
+	padding: 0 25px 25px;
+	width: 906px;
+}
+#body div h2 {
+	color: #dc3400;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 32px;
+	letter-spacing: 0.025em;
+	line-height: 40px;
+	margin: 0;
+	padding: 20px 0;
+	text-shadow: 1px 0 #fdf9e7;
+}
+#body div#products h2 {
+	padding: 20px 0 13px;
+}
+#body div h3,
+#body div span {
+	color: #816d62;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	line-height: 24px;
+	margin: 0;
+	text-transform: uppercase;
+}
+#body div span {
+	display: block;
+}
+#body div p {
+	margin: 0 0 25px;
+}
+#body div div {
+	background: none;
+	border: 0;
+	margin: 20px 0 0;
+	padding: 0;
+	width: auto;
+}
+#body div div ul {
+	margin: 0;
+	padding: 5px 0 0 20px;
+}
+#body div div ul li {
+	letter-spacing: 0.05em;
+	line-height: 24px;
+	margin: 20px 0;
+}
+#body div table tr td {
+	padding: 15px 0;
+}
+#body div table tr td a {
+	color: #a47c50;
+	text-decoration: none;
+}
+#body div table tr td:first-child {
+	width: 150px;
+}
+#body div div#blog {
+	margin: 0;
+	overflow: hidden;
+}
+#body div div#blog div {
+	float: left;
+	margin: 0;
+	width: 625px;
+}
+#body div div#blog ul {
+	float: right;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 220px;
+}
+#body div div#blog ul li {
+	margin: 0;
+	padding: 0 0 24px;
+}
+#body div div#blog ul li ul {
+	float: none;
+	list-style: disc inside;
+	width: auto;
+}
+#body div div#blog ul li ul li {
+	padding: 0;
+}
+#body div div#blog ul li ul li a {
+	text-decoration: none;
+}
+#body div#products {
+	background: #fff url(../images/bg-content-product.gif) repeat-y left top;
+	overflow: hidden;
+	width: 910px;
+}
+#body div#products ul {
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 195px;
+}
+#body div#products ul li {
+	border-top: 1px solid #e5e1c4;
+	padding: 5px 0;
+}
+#body div#products ul li:first-child {
+	border: 0;
+}
+#body div#products ul li a {
+	color: #97785C;
+	display: block;
+	letter-spacing: 0.025em;
+	line-height: 25px;
+	padding: 0 0 0 12px;
+	text-decoration: none;
+}
+#body div#products ul li a:hover {
+	background: url(../images/bullet.png) no-repeat left center;
+	color: #83450e;
+	font-weight: bold;
+}
+#body div#products div {
+	float: left;
+	margin: -12px 0 0 110px;
+	width: 553px;
+}
+#body div#products div img {
+	border: 1px solid #d6d3c2;
+}
+#body div#products div span {
+	margin: 10px auto 20px;
+	text-align: center;
+	width: 325px;
+}
+#body div#products div p {
+	margin: 0;
+}
+#body div#figure {
+	background: none;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: auto;
+}
+#body div#figure a {
+	display: block;
+	float: left;
+	margin: 0 0 0 20px;
+}
+#body div#figure a img {
+	display: block;
+	filter: alpha(opacity=100);/* Needed for IE8 and old versions */
+	opacity: 1;
+}
+#body div#figure a:first-child {
+	margin: 0;
+}
+#body div.section {
+	background: #fff url(../images/bg-home-content.gif) repeat-y left top;
+	border: none;
+	height: 400px;
+	margin: 60px 0 0;
+	padding: 0;
+	position: relative;
+	width: auto;
+}
+#body div.section div {
+	background: none;
+	border-bottom: 1px solid #ddd3a9;
+	border-left: 1px solid #ddd3a9;
+	border-top: 1px solid #ddd3a9;
+	border-radius: 3px 0 0 3px;
+	float: left;
+	height: 399px;
+	padding: 0 24px;
+	margin: 0;
+	width: 270px;
+}
+#body div.section div h1 {
+	color: #816d62;
+	font-size: 24px;
+	font-family: "Times New Roman", Times, serif;
+	letter-spacing: 0.025em;
+	line-height: 30px;
+	margin: 15px 0;
+	text-align: center;
+	text-shadow: 1px 1px 1px #fdf9e7;
+}
+#body div.section div h1 a,
+#body div span a {
+	color: #736C66;
+	text-decoration: none;
+}
+#body div.section div p {
+	margin: 0;
+	padding: 0 0 22px;
+	text-align: left;
+}
+#body div.section ul {
+	list-style: none;
+	float: left;
+	height: 380px;
+	margin: 0;
+	padding: 0 20px;
+	width: 599px;
+}
+#body div.section ul li {
+	float: left;
+	margin: 0 0 0 15px;
+	width: 292px;
+}
+#body div.section ul li img {
+	display: block;
+	filter: alpha(opacity=100);/* Needed for IE8 and old versions */
+	opacity: 1;
+	margin: -15px 0 10px;
+}
+#body div.section ul li img:hover,
+#body div#figure a img:hover {
+	filter: alpha(opacity=90);/* Needed for IE8 and old versions */
+	opacity: 0.9
+}
+#body div.section ul li:first-child {
+	margin: 0;
+}
+#body div.section ul li h2 {
+	color: #816d62;
+	font-size: 16px;
+	font-family: "Times New Roman", Times, serif;
+	letter-spacing: 0.025em;
+	line-height: 24px;
+	margin: 0;
+	padding: 0;
+	text-shadow: 1px 1px 1px #ffffff;
+	text-transform: uppercase;
+}
+#body div.section ul li p {
+	margin: 0;
+}
+#footer {
+	margin: 0 auto;
+	width: 958px;
+}
+#footer div {
+	background: #fdfbef;
+	border: 1px solid #ddd3a9;
+	border-radius: 3px;
+	height: 90px;
+}
+#footer div div:first-child {
+	background: none;
+	border: 0;
+	border-radius: 0;
+	float: left;
+	width: 406px;
+}
+#footer div div:first-child img {
+	float: left;
+	margin: -21px 15px 0 0;
+}
+#footer div div h4 {
+	color: #be3c14;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 32px;
+	letter-spacing: 0.025em;
+	line-height: 32px;
+	margin: 15px 0 0;
+	padding: 0 0 0 20px;
+	text-shadow: 1px 0px #e69f75;
+}
+#footer div div {
+	background: #fff;
+	border: 0;
+	border-radius: 0;
+	float: right;
+	height: 90px;
+	width: 549px;
+}
+#footer div div h5 {
+	color: #816b46;
+	font-size: 14px;
+	line-height: 25px;
+	margin: 0;
+	padding: 0 0 5px;
+	text-transform: uppercase;
+}
+#footer div div div h5 {
+	padding: 0 0 2px;
+}
+#footer div div p {
+	color: #794a18;
+	font-size: 17px;
+	letter-spacing: 0.025em;
+	line-height: 30px;
+	margin: 0;
+}
+#footer div form {
+	float: left;
+	margin: 19px 66px 0 20px;
+	overflow: hidden;
+	width: 321px;
+}
+#footer div div form label {
+	background: url(../images/interface.png) no-repeat 0 -55px;
+	display: block;
+	float: left;
+	height: 22px;
+	width: 249px;
+}
+#footer div div form label input#newsletter {
+	background: none;
+	border: 0;
+	color: #9f9f9f;
+	display: block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	height: 20px;
+	letter-spacing: 0.05em;
+	line-height: 20px;
+	margin: 1px 0 0 3px;
+	padding: 0 5px;
+	width: 224px;
+}
+#footer div div form input#subscribe {
+	background:url(../images/interface.png) no-repeat 0 0;
+	border: 0;
+	color: #ffffff;
+	cursor: pointer;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	height: 22px;
+	margin: 0 0 0 -10px;
+	padding: 0 0 2px;
+	width: 72px;
+}
+#footer div div form input#subscribe:hover {
+	background: url(../images/interface.png) no-repeat 0 -22px;
+}
+#footer div div div {
+	border: 0;
+	border-radius: 0;
+	float: left;
+	height: auto;
+	margin: 19px 0 0;
+	width: 121px;
+}
+#footer div div div a {
+	display: block;
+	float: left;
+	text-indent: -999999px;
+}
+#footer div div div a#facebook {
+	background: url(../images/icons.png) no-repeat 0 0;
+	height: 25px;
+	width: 25px;
+}
+#footer div div div a#facebook:hover {
+	background: url(../images/icons.png) no-repeat 0 -25px;
+}
+#footer div div div a#twitter {
+	background: url(../images/icons.png) no-repeat 0 -142px;
+	height: 26px;
+	margin: 0 0 0 14px;
+	width: 38px;
+}
+#footer div div div a#twitter:hover {
+	background: url(../images/icons.png) no-repeat 0 -168px;
+}
+#footer div div div a#googleplus {
+	background: url(../images/icons.png) no-repeat 0 -70px;
+	height: 26px;
+	margin: 0 0 0 18px;
+	width: 26px;
+}
+#footer div div div a#googleplus:hover {
+	background: url(../images/icons.png) no-repeat 0 -96px;
+}
+#footer p.footnote {
+	color: #888888;
+	font-size: 12px;
+	letter-spacing: 0.05em;
+	line-height: 50px;
+	margin: 0;
+	text-align: center;
+	text-shadow: 1px 1px 1px #eeefee;
+}
