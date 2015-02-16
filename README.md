@@ -1,2 +1,3 @@
-# game
-ROP Wargame repository
+# ROP Wargame Repository
+
+Just for save storage and easy to download
