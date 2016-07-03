@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 	fflush(stdout);
 	read(0, input, sizeof(input));
 	unsigned long addr = strtoul(input, NULL, 10);
-	write(1, (void*) addr, 32);
+	write(1, (void*) addr, 64);
 	
 	return 0;
 }
