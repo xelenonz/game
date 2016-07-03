@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 	if (diff != 0 && diff != 1)
 		return 0;
 	diff = (diff*1000000000) + tp.tv_nsec - usertp.tv_nsec;
-	if (diff > 800000) // 800us
+	if (diff > 1000000) // 1ms
 		return 0;
 
 	// ... 
