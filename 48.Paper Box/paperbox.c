@@ -30,6 +30,8 @@ static void sandbox()
 	seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(execveat), 0);
 	seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(name_to_handle_at), 0);
 	seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(open_by_handle_at), 0);
+	seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(mmap), 0);
+	seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(mprotect), 0);
 
 	if (seccomp_load(ctx) < 0) {
 		seccomp_release(ctx);
