@@ -1,3 +1,4 @@
+// Note: 'getkey' binary path is /game/getkey
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
