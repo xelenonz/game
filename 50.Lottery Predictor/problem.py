@@ -1,38 +1,26 @@
 from Crypto.Util.number import *
 from Crypto.PublicKey import RSA
 import random
-import socket
 
-sock = socket.socket()
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-sock.bind(("0.0.0.0",9001))
-sock.listen(5)
-
-flag = "______________________________________________________"
+flag = "______________________________________________"
 m = bytes_to_long(flag)
+
+key = RSA.generate(1024)
+c = pow(m, key.e, key.n)
+print("Welcome to Lattery Predictor from Certificate\n")
+print("PublicKey:\n")
+print("N = " + str(key.n) + "\n")
+print("e = " + str(key.e) + "\n\n")
+print("Example input my certificate " + str(c) + "\n\n")
+
 while True:
     try:
-        cn, addr = sock.accept()
-        cn.settimeout(10)
-        key = RSA.generate(1024)
-        c = pow(m, key.e, key.n)
-        cn.sendall("Welcome to Lattery Predictor from Certificate\n")
-        cn.sendall("PublicKey:\n")
-        cn.sendall("N = " + str(key.n) + "\n")
-        cn.sendall("e = " + str(key.e) + "\n\n")
-        cn.sendall("Example input my certificate " + str(c) + "\n\n")
-
-        while True:
-            cn.sendall("Certificate: ")
-            try:
-                tc = int(cn.recv(1024))
-                tm = pow(tc, key.d, key.n)
-            except:
-                break
-
-            l2 = random.randint(1,99)
-            l3 = (tm%8) * l2
-
-            cn.sendall("Last 3 number: %03d\n\n"%(l3))
+        tc = int(raw_input("certificate: "))
+        tm = pow(tc, key.d, key.n)
     except:
-        pass
+        break
+
+    l2 = random.randint(1,99)
+    l3 = (tm%8) * l2
+
+    print("Last 3 number: %03d\n\n"%(l3))
