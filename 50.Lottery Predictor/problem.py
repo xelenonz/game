@@ -8,16 +8,15 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(("0.0.0.0",9001))
 sock.listen(5)
 
-flag = "--------------------------------------------------------------------------------"
+flag = "______________________________________________________"
 m = bytes_to_long(flag)
-
 while True:
     try:
         cn, addr = sock.accept()
         cn.settimeout(10)
-        key = RSA.generate(2048)
+        key = RSA.generate(1024)
         c = pow(m, key.e, key.n)
-        cn.sendall("Welcome to Lottery Predictor from Certificate\n")
+        cn.sendall("Welcome to Lattery Predictor from Certificate\n")
         cn.sendall("PublicKey:\n")
         cn.sendall("N = " + str(key.n) + "\n")
         cn.sendall("e = " + str(key.e) + "\n\n")
