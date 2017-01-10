@@ -145,8 +145,7 @@ static User *register_user()
 		nlen = get_line(buf, sizeof(buf));
 		user->password = strdup(buf);
 		
-		if (users)
-			user->next = users;
+		user->next = users;
 		users = user;
 	}
 	
