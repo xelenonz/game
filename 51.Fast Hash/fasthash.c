@@ -1,8 +1,8 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include <sys/syscall.h>
 
 typedef struct user_t {
 	char *name;
@@ -12,11 +12,16 @@ typedef struct user_t {
 
 static User *users;
 
+__attribute__ ((noreturn)) static void safe_exit(int status)
+{
+	syscall(SYS_exit_group, status);
+}
+
 static void write_str(const char *s)
 {
 	size_t l = strlen(s);
 	if (write(1, s, l) != l)
-		exit(1);
+		safe_exit(1);
 }
 
 static int get_line(char *buf, int size)
@@ -25,7 +30,7 @@ static int get_line(char *buf, int size)
 	char c;
 	for (i = 0; i < size-1; i++) {
 		if (read(0, &c, 1) != 1)
-			exit(1);
+			safe_exit(1);
 		if (c == '\n')
 			break;
 		buf[i] = c;
@@ -38,7 +43,7 @@ static int get_int()
 {
 	char buf[32];
 	if (get_line(buf, sizeof(buf)) == 0)
-		exit(1);
+		safe_exit(1);
 	return atoi(buf);
 }
 
@@ -188,10 +193,10 @@ static void init(char *envp)
 {
 	struct timeval tv;
 	unsigned long hi, lo;
-    __asm__ ("rdtsc" : "=a"(lo), "=d"(hi));
+	__asm__ ("rdtsc" : "=a"(lo), "=d"(hi));
 	gettimeofday(&tv, NULL);
 	if (malloc((hi ^ lo ^ tv.tv_sec ^ tv.tv_usec ^ getpid()) & 0xfff) == NULL)
-		exit(1);
+		safe_exit(1);
 	
 	alarm(60);
 	for (int i = 0; i < 16; i++)
@@ -223,7 +228,7 @@ int main(int argc, char **argv, char **envp)
 				list_users();
 				break;
 			case 0:
-				exit(0);
+				safe_exit(0);
 		}
 	}
 	
