@@ -195,8 +195,10 @@ static void init(char *envp)
 	unsigned long hi, lo;
 	__asm__ ("rdtsc" : "=a"(lo), "=d"(hi));
 	gettimeofday(&tv, NULL);
-	if (malloc((hi ^ lo ^ tv.tv_sec ^ tv.tv_usec ^ getpid()) & 0xfff) == NULL)
+	if (malloc(((hi ^ lo ^ tv.tv_sec ^ tv.tv_usec ^ getpid()) & 0xff)+0xda0) == NULL)
 		safe_exit(1);
+
+	sbrk(-0x20000); // default glibc initial heap size is 0x21000, reduce its size to 0x1000
 	
 	alarm(60);
 	for (int i = 0; i < 16; i++)
