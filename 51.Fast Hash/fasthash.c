@@ -1,8 +1,11 @@
+#include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <string.h>
-#include <sys/time.h>
 #include <unistd.h>
+#include <sys/time.h>
 #include <sys/syscall.h>
+#include <sys/mman.h>
 
 typedef struct user_t {
 	char *name;
@@ -189,16 +192,48 @@ static void list_users()
 	}
 }
 
+extern void *(*__morecore)(ptrdiff_t); // internal glibc malloc pointer for request system memory
+
+static void * my_morecore(ptrdiff_t size)
+{
+	static void *addr;
+	if (addr == NULL) {
+		struct timeval tv;
+		unsigned long hi, lo;
+		__asm__ ("rdtsc" : "=a"(lo), "=d"(hi));
+		gettimeofday(&tv, NULL);
+		addr = (void*) (((hi ^ lo ^ tv.tv_sec ^ tv.tv_usec ^ getpid()) & 0xfffffff) << 12);
+		addr = mmap((void*) addr, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED, 0, 0);
+		if (addr == (void*) -1)
+			return NULL;
+	}
+
+	if (size == 0)
+		return ((char*) addr) + 0x1000;
+	return addr;
+}
+
 static void init(char *envp)
 {
-	struct timeval tv;
-	unsigned long hi, lo;
-	__asm__ ("rdtsc" : "=a"(lo), "=d"(hi));
-	gettimeofday(&tv, NULL);
-	if (malloc(((hi ^ lo ^ tv.tv_sec ^ tv.tv_usec ^ getpid()) & 0xff)+0xda0) == NULL)
-		safe_exit(1);
+	// custom heap location
+	__morecore = my_morecore;
 
-	sbrk(-0x20000); // default glibc initial heap size is 0x21000, reduce its size to 0x1000
+	unsigned long *ptr = (unsigned long *) malloc(0xee0);
+	if (ptr == NULL)
+		safe_exit(0);
+	ptr[-1] = 0;
+
+	__morecore = NULL; // prevent expanding heap memory
+
+	// close all _IO_FILE
+	fclose(stderr);
+	dup2(0, 2);
+	fclose(stdin);
+	dup2(2, 0);
+	dup2(1, 2);
+	fclose(stdout);
+	dup2(2, 1);
+	close(2);
 	
 	alarm(60);
 	for (int i = 0; i < 16; i++)
